@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Inventory - Wavy Automotive Inc.</title>
+    <link rel="stylesheet" href="css/inventory.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="inventory-header">
+        <div class="header-content">
+            <h1>QUALITY USED CARS</h1>
+            <p>Wholesale deals on quality cars from Wavy Automotive.</p>
+            <p class="inventory-subtitle">Browse our certified pre-owned inventory with transparent pricing, warranty options, and trusted service. Find your next vehicle today.</p>
+        </div>
+    </header>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <h2>Search Our Inventory</h2>
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <label for="filterMake">Make</label>
+                    <input type="text" id="filterMake" placeholder="e.g., Toyota">
+                </div>
+                <div class="filter-group">
+                    <label for="filterModel">Model</label>
+                    <input type="text" id="filterModel" placeholder="e.g., Camry">
+                </div>
+                <div class="filter-group">
+                    <label for="filterYear">Year (Min)</label>
+                    <input type="number" id="filterYear" placeholder="2015" min="1990" max="2099">
+                </div>
+                <div class="filter-group">
+                    <label for="filterPrice">Max Price</label>
+                    <input type="number" id="filterPrice" placeholder="50000">
+                </div>
+                <button class="btn-filter" onclick="applyFilters()">Search</button>
+                <button class="btn-filter btn-reset" onclick="resetFilters()">Reset</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Count -->
+    <div class="results-info">
+        <p>Found <span id="resultCount">0</span> vehicles</p>
+    </div>
+
+    <!-- Inventory Grid -->
+    <section class="inventory-section">
+        <div class="inventory-container" id="inventoryContainer">
+            <!-- Cars will be loaded here -->
+        </div>
+    </section>
+
+    <!-- No Results Message -->
+    <div id="noResults" class="no-results" style="display: none;">
+        <p>No vehicles found matching your criteria. Please adjust your search and try again.</p>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/inventory.js"></script>
+</body>
+</html>

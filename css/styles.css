@@ -1,0 +1,722 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #ffffff 0%, #f5f7fa 50%, #ffffff 100%);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 61, 122, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid #2E9ECF;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    max-width: 280px;
+    filter: drop-shadow(0 2px 6px rgba(0, 61, 122, 0.1));
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.logo:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 6px 15px rgba(46, 158, 207, 0.3));
+}
+
+.company-info h1 {
+    font-size: 24px;
+    color: #00d4ff;
+    margin: 0;
+    display: none;
+}
+
+.slogan {
+    font-size: 12px;
+    color: #ffcc00;
+    margin: 0;
+    display: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #1a1a1a;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease, border-bottom 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 4px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #2E9ECF;
+    background-color: rgba(46, 158, 207, 0.08);
+    border-bottom: 2px solid #2E9ECF;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fbff 50%, #ffffff 100%);
+    padding: 80px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 15px;
+    gap: 40px;
+    border: 2px solid #e8f0ff;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    font-weight: 900;
+    color: #003D7A;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(46, 158, 207, 0.1);
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Featured Car Image */
+.featured-car-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 61, 122, 0.2);
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+    cursor: pointer;
+    border: 3px solid #ffffff;
+}
+
+.featured-car-image:hover {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 25px 50px rgba(46, 158, 207, 0.35);
+}
+
+/* Search Section */
+.search-section {
+    background: linear-gradient(135deg, #f8fbff 0%, #f0f8ff 100%);
+    padding: 50px 30px;
+    text-align: center;
+    border-top: 2px solid #e8f0ff;
+    border-bottom: 2px solid #e8f0ff;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.search-container h3 {
+    font-size: 28px;
+    color: #003D7A;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-bar input {
+    padding: 13px 20px;
+    border: 2px solid #d0dce8;
+    border-radius: 8px;
+    font-size: 14px;
+    flex: 1;
+    min-width: 200px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #2E9ECF;
+    box-shadow: 0 0 0 3px rgba(46, 158, 207, 0.1);
+}
+
+.btn-search {
+    padding: 13px 40px;
+    background: linear-gradient(135deg, #003D7A 0%, #1E88CC 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 61, 122, 0.2);
+}
+
+.btn-search:hover {
+    background: linear-gradient(135deg, #2E9ECF 0%, #003D7A 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 158, 207, 0.3);
+}
+
+/* Buttons */
+.btn {
+    padding: 14px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 61, 122, 0.15);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2E9ECF 0%, #1E88CC 100%);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #003D7A 0%, #2E9ECF 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(46, 158, 207, 0.35);
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #003D7A 0%, #1E88CC 100%);
+    color: white;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, #2E9ECF 0%, #003D7A 100%);
+    box-shadow: 0 6px 18px rgba(46, 158, 207, 0.3);
+}
+
+/* Features Section */
+.features {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 61, 122, 0.08);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid #f0f5ff;
+}
+
+.feature-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(46, 158, 207, 0.2);
+    border-color: #2E9ECF;
+}
+
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    display: inline-block;
+    background: linear-gradient(135deg, #2E9ECF 0%, #1E88CC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.feature-card h3 {
+    font-size: 18px;
+    color: #003D7A;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.feature-card p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* Financing Section */
+.financing-section {
+    background: linear-gradient(135deg, #f8fbff 0%, #eef7ff 100%);
+    padding: 70px 30px;
+    text-align: center;
+    border-top: 2px solid #d0e5ff;
+    border-bottom: 2px solid #d0e5ff;
+}
+
+.financing-section h2 {
+    font-size: 32px;
+    color: #003D7A;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.financing-section > p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #555555;
+    line-height: 1.8;
+    font-weight: 500;
+}
+
+.banks-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.bank-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(0, 61, 122, 0.08);
+    border: 2px solid #f0f5ff;
+}
+
+.bank-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(46, 158, 207, 0.2);
+    border-color: #2E9ECF;
+}
+
+.bank-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.bank-card h4 {
+    font-size: 16px;
+    color: #003D7A;
+    font-weight: 700;
+}
+
+/* Buying Experience Section */
+.buying-experience {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 30px;
+}
+
+.buying-experience h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #003D7A;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.experience-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 61, 122, 0.08);
+    border: 2px solid #f0f5ff;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.experience-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 40px rgba(46, 158, 207, 0.2);
+    border-color: #2E9ECF;
+}
+
+.experience-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.experience-card h4 {
+    font-size: 18px;
+    color: #003D7A;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.experience-card p {
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Reviews Section */
+.reviews {
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f5ff 100%);
+    padding: 70px 30px;
+    border-top: 2px solid #d0e5ff;
+    border-bottom: 2px solid #d0e5ff;
+}
+
+.reviews h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #003D7A;
+    margin-bottom: 50px;
+    font-weight: 800;
+}
+
+.reviews-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.carousel-btn {
+    background: linear-gradient(135deg, #003D7A 0%, #1E88CC 100%);
+    color: white;
+    border: none;
+    font-size: 30px;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 61, 122, 0.15);
+}
+
+.carousel-btn:hover {
+    background: linear-gradient(135deg, #2E9ECF 0%, #003D7A 100%);
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(46, 158, 207, 0.3);
+}
+
+.reviews-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-behavior: smooth;
+    flex: 1;
+}
+
+.review-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    min-width: 300px;
+    box-shadow: 0 5px 20px rgba(0, 61, 122, 0.08);
+    border: 2px solid #f0f5ff;
+    transition: all 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(46, 158, 207, 0.15);
+}
+
+.review-stars {
+    color: #FFC107;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.review-text {
+    font-style: italic;
+    color: #555555;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.review-author {
+    font-weight: 700;
+    color: #003D7A;
+}
+
+/* Contact Section */
+.contact {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    color: #003D7A;
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.contact > p {
+    font-size: 16px;
+    color: #555555;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.contact-item {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 61, 122, 0.08);
+    border: 2px solid #f0f5ff;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 40px rgba(46, 158, 207, 0.2);
+    border-color: #2E9ECF;
+}
+
+.contact-item h4 {
+    font-size: 18px;
+    color: #003D7A;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.contact-item p {
+    color: #666666;
+    font-size: 16px;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, #003D7A 0%, #1E88CC 100%);
+    color: #ffffff;
+    padding: 50px 30px;
+    text-align: center;
+    border-top: 4px solid #2E9ECF;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.footer-logo-img {
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    max-width: 150px;
+    filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.footer-links a:hover {
+    color: #2E9ECF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px 15px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar input {
+        min-width: auto;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .banks-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .reviews-carousel {
+        flex-direction: column;
+    }
+
+    .carousel-btn {
+        width: 100%;
+    }
+
+    .reviews-container {
+        width: 100%;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .company-info h1 {
+        font-size: 18px;
+    }
+
+    .slogan {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-brand {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        height: 60px;
+        max-width: 100px;
+    }
+
+    .hero-content h2 {
+        font-size: 24px;
+    }
+
+    .search-container h3 {
+        font-size: 18px;
+    }
+
+    .buying-experience h2,
+    .reviews h2,
+    .financing-section h2 {
+        font-size: 24px;
+    }
+
+    .contact h2 {
+        font-size: 28px;
+    }
+}

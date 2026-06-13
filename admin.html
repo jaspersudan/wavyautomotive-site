@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Wavy Automotive Inc.</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="header-content">
+                <h1>Admin Panel - Inventory Management</h1>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="admin-nav">
+            <button class="nav-btn active" onclick="switchTab('inventory')">Manage Inventory</button>
+            <button class="nav-btn" onclick="switchTab('submissions')">Form Submissions</button>
+            <button class="nav-btn" onclick="switchTab('inquiries')">Car Inquiries</button>
+            <button class="nav-btn" onclick="switchTab('sharepoint')">SharePoint Sync</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Inventory Management Tab -->
+            <section id="inventoryTab" class="tab-content active">
+                <div class="section-header">
+                    <h2>Vehicle Inventory Management</h2>
+                    <button class="btn-primary" onclick="showAddVehicleForm()">+ Add New Vehicle</button>
+                </div>
+
+                <!-- Add/Edit Vehicle Form -->
+                <div id="vehicleForm" class="vehicle-form" style="display: none;">
+                    <h3 id="formTitle">Add New Vehicle</h3>
+                    <form onsubmit="handleVehicleFormSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="make">Make *</label>
+                                <input type="text" id="make" name="make" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="model">Model *</label>
+                                <input type="text" id="model" name="model" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="year">Year *</label>
+                                <input type="number" id="year" name="year" min="1990" max="2099" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price *</label>
+                                <input type="number" id="price" name="price" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mileage">Mileage (km) *</label>
+                                <input type="number" id="mileage" name="mileage" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Color</label>
+                                <input type="text" id="color" name="color">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="image">Image URL</label>
+                            <input type="url" id="image" name="image" placeholder="https://example.com/car-image.jpg">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Vehicle</button>
+                            <button type="button" class="btn-secondary" onclick="cancelVehicleForm()">Cancel</button>
+                            <input type="hidden" id="editingCarId" value="">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Inventory Table -->
+                <div class="table-container">
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Price</th>
+                                <th>Mileage</th>
+                                <th>Color</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inventoryTableBody">
+                            <!-- Inventory rows will be inserted here -->
+                        </tbody>
+                    </table>
+                    <p id="emptyMessage" class="empty-message">No vehicles in inventory. Add a new vehicle to get started.</p>
+                </div>
+            </section>
+
+            <!-- Form Submissions Tab -->
+            <section id="submissionsTab" class="tab-content">
+                <div class="section-header">
+                    <h2>Form Submissions</h2>
+                    <button class="btn-secondary" onclick="clearSubmissions()">Clear All</button>
+                </div>
+                <div class="table-container">
+                    <table class="submissions-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Type</th>
+                                <th>Date</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="submissionsTableBody">
+                            <!-- Submissions will be inserted here -->
+                        </tbody>
+                    </table>
+                    <p id="emptySubmissionsMessage" class="empty-message">No submissions yet.</p>
+                </div>
+            </section>
+
+            <!-- Car Inquiries Tab -->
+            <section id="inquiriesTab" class="tab-content">
+                <div class="section-header">
+                    <h2>Car Inquiries</h2>
+                    <button class="btn-secondary" onclick="clearInquiries()">Clear All</button>
+                </div>
+                <div class="table-container">
+                    <table class="inquiries-table">
+                        <thead>
+                            <tr>
+                                <th>Vehicle</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Test Drive</th>
+                                <th>Date</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiriesTableBody">
+                            <!-- Inquiries will be inserted here -->
+                        </tbody>
+                    </table>
+                    <p id="emptyInquiriesMessage" class="empty-message">No inquiries yet.</p>
+                </div>
+            </section>
+
+            <!-- SharePoint Sync Tab -->
+            <section id="sharepointTab" class="tab-content">
+                <div class="section-header">
+                    <h2>SharePoint Integration</h2>
+                </div>
+                <div class="sharepoint-info">
+                    <h3>Connect to SharePoint Excel Sheet</h3>
+                    <p>This feature allows you to sync your inventory with an Excel sheet stored on SharePoint. When enabled, your inventory will automatically update based on changes to the Excel file.</p>
+                    
+                    <div class="sharepoint-config">
+                        <h4>SharePoint Configuration</h4>
+                        <div class="form-group">
+                            <label for="spSiteUrl">SharePoint Site URL *</label>
+                            <input type="url" id="spSiteUrl" placeholder="https://wavyautomotive-my.sharepoint.com/personal/...">
+                        </div>
+                        <div class="form-group">
+                            <label for="spSpreadsheetId">Spreadsheet ID *</label>
+                            <input type="text" id="spSpreadsheetId" placeholder="Paste the spreadsheet ID from the SharePoint link">
+                        </div>
+                        <p class="info-text">The spreadsheet should have columns: Make, Model, Year, Price, Mileage, Color, Image URL</p>
+                        <button class="btn-primary" onclick="setupSharePointSync()">Setup SharePoint Sync</button>
+                    </div>
+
+                    <div class="sync-status">
+                        <h4>Sync Status</h4>
+                        <p id="syncStatus" class="status-message">Not configured</p>
+                        <button class="btn-secondary" onclick="syncInventoryNow()" style="display: none;" id="syncButton">Sync Now</button>
+                    </div>
+
+                    <div class="instructions">
+                        <h4>Instructions:</h4>
+                        <ol>
+                            <li>Create an Excel file in SharePoint with your vehicle inventory</li>
+                            <li>Copy the SharePoint URL and Spreadsheet ID above</li>
+                            <li>Click "Setup SharePoint Sync" to establish the connection</li>
+                            <li>Your inventory will automatically sync with the Excel file</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

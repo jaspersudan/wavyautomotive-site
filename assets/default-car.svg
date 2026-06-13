@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 200" width="280" height="200">
+  <!-- Background -->
+  <rect width="280" height="200" fill="#e8e8e8"/>
+  
+  <!-- Shadow -->
+  <ellipse cx="140" cy="180" rx="100" ry="15" fill="#ddd"/>
+  
+  <!-- Car body -->
+  <ellipse cx="140" cy="110" rx="60" ry="35" fill="#0099cc"/>
+  
+  <!-- Car cabin -->
+  <rect x="100" y="75" width="80" height="35" rx="5" fill="#0099cc"/>
+  
+  <!-- Windshield -->
+  <path d="M 105 78 L 120 65 L 160 65 L 175 78" fill="#87ceeb" opacity="0.6"/>
+  
+  <!-- Front bumper -->
+  <rect x="75" y="140" width="130" height="8" fill="#1a1a1a"/>
+  
+  <!-- Wheels -->
+  <circle cx="100" cy="150" r="18" fill="#1a1a1a"/>
+  <circle cx="180" cy="150" r="18" fill="#1a1a1a"/>
+  
+  <!-- Hubcaps -->
+  <circle cx="100" cy="150" r="12" fill="#555"/>
+  <circle cx="180" cy="150" r="12" fill="#555"/>
+  <circle cx="100" cy="150" r="6" fill="#999"/>
+  <circle cx="180" cy="150" r="6" fill="#999"/>
+  
+  <!-- Windows -->
+  <rect x="85" y="88" width="20" height="18" rx="2" fill="#87ceeb" opacity="0.5"/>
+  <rect x="175" y="88" width="20" height="18" rx="2" fill="#87ceeb" opacity="0.5"/>
+  
+  <!-- Headlights -->
+  <circle cx="82" cy="115" r="6" fill="#ffff00" opacity="0.7"/>
+  <circle cx="198" cy="115" r="6" fill="#ffff00" opacity="0.7"/>
+  
+  <!-- Text -->
+  <text x="140" y="45" font-size="16" font-weight="bold" text-anchor="middle" fill="#666">Vehicle Image</text>
+</svg>

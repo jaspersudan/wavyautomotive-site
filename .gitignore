@@ -1,0 +1,14 @@
+node_modules/
+.DS_Store
+.vscode/settings.json
+*.log
+dist/
+build/
+.env
+.env.local
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+thumbs.db

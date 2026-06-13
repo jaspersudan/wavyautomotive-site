@@ -1,0 +1,234 @@
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 95vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 61, 122, 0.15);
+    animation: slideIn 0.3s ease;
+    border: 2px solid #e0e0e0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #003D7A;
+}
+
+.modal-content h2 {
+    color: #003D7A;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.modal-description {
+    color: #666666;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form h3 {
+    color: #003D7A;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #2E9ECF;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+    background-color: #f8f9fa;
+    color: #333333;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2E9ECF;
+    box-shadow: 0 0 8px rgba(46, 158, 207, 0.2);
+    background-color: #ffffff;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Modal Body */
+.modal-body {
+    color: #666666;
+    line-height: 1.8;
+}
+
+.modal-body h3 {
+    color: #003D7A;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.modal-body p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.modal-body ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.modal-body li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Banks Grid in Modal */
+.banks-grid-modal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.banks-grid-modal .bank-card {
+    padding: 20px;
+    min-height: auto;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        padding: 30px 20px;
+        max-width: 90vw;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+
+    .close {
+        right: 15px;
+        top: 10px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 13px;
+    }
+
+    .close {
+        font-size: 20px;
+    }
+
+    .banks-grid-modal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

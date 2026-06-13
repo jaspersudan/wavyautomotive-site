@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wavy Automotive - Logo Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f0f0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        
+        .preview-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation Bar Preview */
+        .navbar {
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            border-bottom: 2px solid #0099cc;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            max-width: 280px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+            transition: transform 0.3s ease, filter 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 8px rgba(0, 212, 255, 0.4));
+        }
+        
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            color: #e0e0e0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: #00d4ff;
+            background-color: rgba(0, 212, 255, 0.1);
+        }
+        
+        .section-title {
+            font-size: 28px;
+            color: #00d4ff;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0099cc;
+        }
+        
+        .logo-variants {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .logo-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .logo-card h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .logo-card p {
+            color: #b0b0b0;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .logo-display {
+            background-color: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+        }
+        
+        .logo-display img {
+            max-height: 100px;
+            max-width: 100%;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+        }
+        
+        .features {
+            background-color: #1a1a1a;
+            border-left: 4px solid #0099cc;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+        }
+        
+        .features h3 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            color: #b0b0b0;
+            padding: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .color-swatch {
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #1a3a52 0%, #0d1f2d 100%);
+            border: 1px solid #0099cc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-box h2 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 15px;
+                font-size: 14px;
+            }
+            
+            .nav-link {
+                padding: 5px 10px;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <h1 style="text-align: center; margin: 30px 0; color: #00d4ff; font-size: 36px;">
+            🎨 Wavy Automotive - New Logo Preview
+        </h1>
+        
+        <!-- Navigation Bar Preview -->
+        <h2 class="section-title">📱 Website Navigation Bar (Live Preview)</h2>
+        <div class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" preserveAspectRatio="xMidYMid meet" class="logo" style="width: 280px; height: auto;">
+                        <defs>
+                            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2E9ECF;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#1E88CC;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#003D7A;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="darkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#003D7A;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#002050;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#001A2E;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g>
+                            <path d="M 50 80 Q 80 40, 120 60 Q 140 75, 180 50 Q 200 35, 250 80" fill="url(#blueGradient)" stroke="none"/>
+                            <path d="M 40 100 Q 90 85, 150 100 Q 180 110, 240 95 Q 260 90, 290 110" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+                            <path d="M 45 130 Q 80 110, 130 130 Q 180 155, 240 125 Q 270 110, 300 140 L 290 180 Q 250 200, 180 185 Q 120 170, 60 190 Z" fill="url(#darkGradient)" stroke="none"/>
+                            <path d="M 35 160 Q 85 145, 150 165 Q 200 180, 260 155 Q 285 145, 310 170" fill="none" stroke="#B0D4E8" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+                        </g>
+                        <text x="420" y="200" font-family="Arial, sans-serif" font-size="140" font-weight="900" fill="#003D7A" letter-spacing="8">WAVY</text>
+                        <text x="420" y="280" font-family="Arial, sans-serif" font-size="52" font-weight="400" fill="#002050" letter-spacing="6">AUTOMOTIVE</text>
+                        <line x1="420" y1="310" x2="1100" y2="310" stroke="#2E9ECF" stroke-width="3"/>
+                    </svg>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-link active">Home</a></li>
+                    <li><a href="#" class="nav-link">Inventory</a></li>
+                    <li><a href="#" class="nav-link">Referral</a></li>
+                    <li><a href="#" class="nav-link">Contact</a></li>
+                    <li><a href="#" class="nav-link">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Logo Variants -->
+        <h2 class="section-title">🎯 Logo Variants Available</h2>
+        <div class="logo-variants">
+            <div class="logo-card">
+                <h3>Main Logo</h3>
+                <p>1200 x 400px | Full-size with text</p>
+                <div class="logo-display" style="min-height: 100px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" style="height: 60px; width: auto;">
+                        <defs>
+                            <linearGradient id="blueGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2E9ECF;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#1E88CC;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#003D7A;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="darkGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#003D7A;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#002050;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#001A2E;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g>
+                            <path d="M 50 80 Q 80 40, 120 60 Q 140 75, 180 50 Q 200 35, 250 80" fill="url(#blueGradient1)" stroke="none"/>
+                            <path d="M 40 100 Q 90 85, 150 100 Q 180 110, 240 95 Q 260 90, 290 110" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+                            <path d="M 45 130 Q 80 110, 130 130 Q 180 155, 240 125 Q 270 110, 300 140 L 290 180 Q 250 200, 180 185 Q 120 170, 60 190 Z" fill="url(#darkGradient1)" stroke="none"/>
+                            <path d="M 35 160 Q 85 145, 150 165 Q 200 180, 260 155 Q 285 145, 310 170" fill="none" stroke="#B0D4E8" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+                        </g>
+                        <text x="420" y="200" font-family="Arial, sans-serif" font-size="140" font-weight="900" fill="#003D7A" letter-spacing="8">WAVY</text>
+                        <text x="420" y="280" font-family="Arial, sans-serif" font-size="52" font-weight="400" fill="#002050" letter-spacing="6">AUTOMOTIVE</text>
+                        <line x1="420" y1="310" x2="1100" y2="310" stroke="#2E9ECF" stroke-width="3"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="logo-card">
+                <h3>Horizontal Logo</h3>
+                <p>1400 x 250px | Wide format</p>
+                <div class="logo-display" style="min-height: 100px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 250" style="height: 60px; width: auto;">
+                        <defs>
+                            <linearGradient id="blueGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2E9ECF;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#1E88CC;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#003D7A;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="darkGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#003D7A;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#002050;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#001A2E;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <g>
+                            <path d="M 40 60 Q 65 30, 100 50 Q 115 62, 150 40 Q 165 30, 200 60" fill="url(#blueGradient2)" stroke="none"/>
+                            <path d="M 32 80 Q 72 68, 120 80 Q 145 90, 190 75 Q 205 70, 225 90" fill="none" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+                            <path d="M 38 110 Q 68 93, 110 110 Q 155 130, 200 105 Q 222 92, 245 115 L 236 150 Q 200 165, 140 155 Q 80 145, 50 160 Z" fill="url(#darkGradient2)" stroke="none"/>
+                            <path d="M 28 135 Q 70 122, 120 140 Q 160 155, 210 130 Q 230 120, 250 145" fill="none" stroke="#B0D4E8" stroke-width="5" stroke-linecap="round" opacity="0.6"/>
+                        </g>
+                        <text x="310" y="145" font-family="Arial, sans-serif" font-size="110" font-weight="900" fill="#003D7A" letter-spacing="6">WAVY</text>
+                        <text x="310" y="205" font-family="Arial, sans-serif" font-size="42" font-weight="400" fill="#002050" letter-spacing="4">AUTOMOTIVE</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="logo-card">
+                <h3>Icon Logo</h3>
+                <p>400 x 400px | Mobile & favicon</p>
+                <div class="logo-display" style="min-height: 120px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="height: 80px; width: 80px;">
+                        <defs>
+                            <linearGradient id="blueGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2E9ECF;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#1E88CC;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#003D7A;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="darkGradient3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#003D7A;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#002050;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#001A2E;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="200" cy="200" r="190" fill="none" stroke="#2E9ECF" stroke-width="2" opacity="0.3"/>
+                        <g transform="translate(200, 200)">
+                            <path d="M -80 -40 Q -50 -80, 0 -50 Q 30 -35, 80 -60 Q 100 -75, 130 -30" fill="url(#blueGradient3)" stroke="none"/>
+                            <path d="M -90 -15 Q -40 -35, 10 -20 Q 45 -5, 95 -25 Q 115 -35, 140 0" fill="none" stroke="white" stroke-width="10" stroke-linecap="round" opacity="0.7"/>
+                            <path d="M -85 20 Q -50 -5, -5 20 Q 40 50, 90 20 Q 115 5, 135 40 L 120 90 Q 70 110, 0 95 Q -60 80, -95 100 Z" fill="url(#darkGradient3)" stroke="none"/>
+                            <path d="M -100 50 Q -45 30, 10 60 Q 60 85, 120 50 Q 140 40, 155 75" fill="none" stroke="#B0D4E8" stroke-width="8" stroke-linecap="round" opacity="0.6"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Design Features -->
+        <h2 class="section-title">✨ Design Features</h2>
+        <div class="features">
+            <h3>Professional Elements</h3>
+            <ul>
+                <li>Wave-inspired car silhouette - Represents motion and "Wavy" brand</li>
+                <li>Multi-layer gradient fills - Professional depth and dimension</li>
+                <li>Integrated typography - Bold "WAVY" + elegant "AUTOMOTIVE"</li>
+                <li>White accent lines - Adds sophistication and visual interest</li>
+                <li>Modern color scheme - Professional blues with highlights</li>
+            </ul>
+        </div>
+        
+        <!-- Color Palette -->
+        <h2 class="section-title">🎨 Color Palette</h2>
+        <div class="color-palette">
+            <div class="color-swatch" style="background-color: #003D7A;">
+                <strong>#003D7A</strong><br>Primary Blue<br><small>Trust & Stability</small>
+            </div>
+            <div class="color-swatch" style="background-color: #1E88CC;">
+                <strong>#1E88CC</strong><br>Secondary Blue<br><small>Balance</small>
+            </div>
+            <div class="color-swatch" style="background-color: #2E9ECF;">
+                <strong>#2E9ECF</strong><br>Accent Blue<br><small>Energy & Innovation</small>
+            </div>
+            <div class="color-swatch" style="background-color: #B0D4E8;">
+                <strong>#B0D4E8</strong><br>Light Blue<br><small>Subtle Accents</small>
+            </div>
+        </div>
+        
+        <!-- Interactive Demo -->
+        <h2 class="section-title">🖱️ Interactive Features</h2>
+        <div class="info-box">
+            <h2>Try Hovering Over the Logo Above!</h2>
+            <p>
+                <strong>✓ Smooth hover effect:</strong> The logo scales up to 105% with a cyan glow<br>
+                <strong>✓ Cursor changes:</strong> Indicates the logo is interactive<br>
+                <strong>✓ 0.3s animation:</strong> Professional smooth transitions<br>
+                <strong>✓ Enhanced shadow:</strong> Cyan drop-shadow on hover for modern look
+            </p>
+        </div>
+        
+        <!-- Summary -->
+        <h2 class="section-title">📊 Implementation Summary</h2>
+        <div class="features">
+            <h3>What's New</h3>
+            <ul>
+                <li>Professional main logo integrated into navbar</li>
+                <li>Horizontal variant available for alternative layouts</li>
+                <li>Icon-only version ready for mobile/favicon</li>
+                <li>CSS hover effects with smooth animations</li>
+                <li>Company name hidden (now integrated into logo)</li>
+                <li>Drop-shadow styling for modern appearance</li>
+                <li>Fully responsive design across all devices</li>
+                <li>SVG format for infinite scalability</li>
+            </ul>
+        </div>
+        
+        <!-- Footer Note -->
+        <div style="background-color: #1a1a1a; border-top: 1px solid #333; margin-top: 40px; padding: 20px; text-align: center; color: #b0b0b0; font-size: 14px;">
+            <p>✅ All logo files are ready in: <code style="color: #00d4ff;">assets/logo.png</code></p>
+            <p style="margin-top: 10px;">Open this file in your browser to see the interactive effects. The navbar logo above has working hover effects!</p>
+        </div>
+    </div>
+</body>
+</html>

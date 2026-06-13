@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wavy Automotive Inc. - Quality Used Cars</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/modals.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/logo.png" alt="Wavy Automotive Logo" class="logo">
+                <div class="company-info">
+                    <h1 class="company-name">Wavy Automotive Inc.</h1>
+                    <p class="slogan">Ride The Wave of Quality</p>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#" class="nav-link" onclick="openInventory()">Inventory</a></li>
+                <li><a href="#" class="nav-link" onclick="openReferralModal()">Referral</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#" class="nav-link" onclick="openAdminPanel()">Admin</a></li>
+                <li><a href="#" class="nav-link" onclick="openSellTradeModal()">Sell/Trade</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slideshow -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>WANNA DRIVE?</h2>
+            <p>We make it easy to buy and sell your car</p>
+            <button class="btn btn-primary" onclick="openInventory()">Find your car</button>
+        </div>
+        <div class="hero-image">
+            <img id="heroCarImage" alt="Featured Luxury Car" src="assets/hero-car.jpg" class="featured-car-image" />
+        </div>
+    </section>
+
+    <!-- Search Bar Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <h3>Find Your Perfect Vehicle</h3>
+            <div class="search-bar">
+                <input type="text" id="searchMake" placeholder="Search by Make (e.g., Toyota)">
+                <input type="text" id="searchModel" placeholder="Search by Model (e.g., Camry)">
+                <button class="btn btn-search" onclick="searchInventory()">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card" onclick="openApprovalsModal()">
+            <div class="feature-icon">✓</div>
+            <h3>Same Day Approvals!</h3>
+            <p>Get approved quickly and drive home same day with our fast approval process.</p>
+        </div>
+
+        <div class="feature-card" onclick="openReferralModal()">
+            <div class="feature-icon">💛</div>
+            <h3>Referral Programs Available</h3>
+            <p>Earn rewards by referring friends and family to Wavy Automotive.</p>
+        </div>
+
+        <div class="feature-card" onclick="openInventory()">
+            <div class="feature-icon">📦</div>
+            <h3>Huge Selection of Inventory</h3>
+            <p>Browse from hundreds of quality vehicles to find your perfect match.</p>
+        </div>
+
+        <div class="feature-card" onclick="openDeliveryModal()">
+            <div class="feature-icon">🚚</div>
+            <h3>FREE Canada-wide Delivery</h3>
+            <p>Complimentary delivery anywhere in Canada for your convenience.</p>
+        </div>
+
+        <div class="feature-card" onclick="openFinancingModal()">
+            <div class="feature-icon">💰</div>
+            <h3>Lowest Interest Rates</h3>
+            <p>Affordable payments with competitive financing options available.</p>
+        </div>
+    </section>
+
+
+
+    <!-- Buying Experience Section -->
+    <section class="buying-experience">
+        <h2>Trusting Buying Experience</h2>
+        <div class="experience-cards">
+            <div class="experience-card">
+                <div class="experience-icon">✓</div>
+                <h4>Transparent Pricing</h4>
+                <p>No hidden fees. What you see is what you pay.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-icon">🔍</div>
+                <h4>Fully Inspected</h4>
+                <p>Every vehicle is thoroughly inspected and certified.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-icon">⭐</div>
+                <h4>Trusted Service</h4>
+                <p>10+ years of excellence in customer service.</p>
+            </div>
+            <div class="experience-card">
+                <div class="experience-icon">🛡️</div>
+                <h4>Warranty Coverage</h4>
+                <p>Comprehensive warranty options available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews">
+        <h2>What Our Customers Are Saying</h2>
+        <div class="reviews-carousel">
+            <button class="carousel-btn prev" onclick="scrollReviews(-1)">‹</button>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Excellent service! The team at Wavy Automotive made buying my car smooth and hassle-free. Highly recommended!"</p>
+                    <p class="review-author">- Sarah Mitchell</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Great selection of vehicles and competitive prices. Customer service was outstanding from start to finish."</p>
+                    <p class="review-author">- James Rodriguez</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Professional and friendly staff. They took time to understand my needs and found the perfect car for me."</p>
+                    <p class="review-author">- Emily Chen</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★</div>
+                    <p class="review-text">"Best car buying experience I've had. Quality vehicles and transparent pricing. Definitely coming back!"</p>
+                    <p class="review-author">- Michael Torres</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Fast approval process and great financing options. The team went above and beyond to help."</p>
+                    <p class="review-author">- Jennifer Park</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Amazing experience from beginning to end. Would highly recommend Wavy Automotive to anyone!"</p>
+                    <p class="review-author">- David Martinez</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Incredible service and selection. Found exactly what I was looking for at a great price."</p>
+                    <p class="review-author">- Lisa Anderson</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Professional, courteous, and very helpful. This is how car buying should be!"</p>
+                    <p class="review-author">- Robert Zhang</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Delivered my car on time, everything as promised. Top-notch service!"</p>
+                    <p class="review-author">- Amanda Davis</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Best dealership I've ever worked with. Highly professional and customer-focused."</p>
+                    <p class="review-author">- Christopher Brown</p>
+                </div>
+            </div>
+            <button class="carousel-btn next" onclick="scrollReviews(1)">›</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Ready to reserve your private consultation?</h2>
+        <p>Complete the form and our team will follow up to schedule a showroom visit, arrange a test drive, or answer any questions about our collection.</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Phone</h4>
+                <p>+1 (368) 550-2669</p>
+            </div>
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p>sales@wavyautomotive.ca</p>
+            </div>
+            <div class="contact-item">
+                <h4>Location</h4>
+                <p>2140 McPhillips St, Winnipeg, MB</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/logo.png" alt="Wavy Automotive Logo" class="footer-logo-img">
+            </div>
+            <div class="footer-links">
+                <a href="#" onclick="openTermsModal()">TERMS OF SERVICE</a>
+                <a href="#" onclick="openPrivacyModal()">PRIVACY POLICY</a>
+                <a href="#" onclick="openReferralModal()">REFERRAL PROGRAM</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+
+    <!-- Same Day Approvals Modal -->
+    <div id="approvalsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('approvalsModal')">&times;</span>
+            <h2>Get a Same Day Credit Check & Approval</h2>
+            <form class="form" onsubmit="handleFormSubmit(event, 'approvals')">
+                
+                <!-- Personal Information -->
+                <h3 style="border-top: 2px solid #0099cc; padding-top: 15px; margin-top: 20px;">Personal Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appFullName">Full Name *</label>
+                        <input type="text" id="appFullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appEmail">Email Address *</label>
+                        <input type="email" id="appEmail" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appPhone">Phone Number *</label>
+                        <input type="tel" id="appPhone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appBirthday">Birthday *</label>
+                        <input type="date" id="appBirthday" name="birthday" required>
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <h3>Address Information</h3>
+                <div class="form-group">
+                    <label for="appAddress">Address *</label>
+                    <input type="text" id="appAddress" name="address" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appCity">City *</label>
+                        <input type="text" id="appCity" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appPostalCode">Postal Code *</label>
+                        <input type="text" id="appPostalCode" name="postalCode" required>
+                    </div>
+                </div>
+
+                <!-- Vehicle Preference -->
+                <h3>Vehicle Preference</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appVehicleType">Vehicle Type *</label>
+                        <select id="appVehicleType" name="vehicleType" required>
+                            <option value="">-- Please choose --</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="truck">Truck</option>
+                            <option value="van">Van</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="coupe">Coupe</option>
+                            <option value="convertible">Convertible</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appBudget">Monthly Budget ($) *</label>
+                        <input type="number" id="appBudget" name="monthlyBudget" min="0" step="100" required>
+                    </div>
+                </div>
+
+                <!-- Employment Information -->
+                <h3>Employment Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appEmploymentStatus">Employment Status *</label>
+                        <select id="appEmploymentStatus" name="employmentStatus" required>
+                            <option value="">-- Please choose --</option>
+                            <option value="employed">Employed</option>
+                            <option value="self-employed">Self-Employed</option>
+                            <option value="retired">Retired</option>
+                            <option value="student">Student</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appOccupation">Occupation *</label>
+                        <input type="text" id="appOccupation" name="occupation" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appEmployer">Employer *</label>
+                        <input type="text" id="appEmployer" name="employer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appIncome">Monthly Income ($) *</label>
+                        <input type="number" id="appIncome" name="monthlyIncome" min="0" step="100" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="appEmploymentDuration">Employment Duration (Months) *</label>
+                    <input type="number" id="appEmploymentDuration" name="employmentDuration" min="0" step="1" required>
+                </div>
+
+                <!-- Housing Information -->
+                <h3>Housing Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="appHousingStatus">Housing Status *</label>
+                        <select id="appHousingStatus" name="housingStatus" required>
+                            <option value="">-- Please choose --</option>
+                            <option value="own">Own</option>
+                            <option value="rent">Rent</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="appHousingDuration">Housing Duration (Months) *</label>
+                        <input type="number" id="appHousingDuration" name="housingDuration" min="0" step="1" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">SUBMIT INFORMATION</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Referral Program Modal -->
+    <div id="referralModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('referralModal')">&times;</span>
+            <h2>Referral Program</h2>
+            <p class="modal-description">Our referral program is our way of thanking loyal customers for helping our business grow. When you refer someone to us and they purchase a vehicle, you'll receive $500 — it's that easy!</p>
+            <p class="modal-description">We truly value our customers and believe they are our strongest supporters, which is why we're proud to offer this rewarding opportunity. If you know anyone searching for a new or pre-owned vehicle, send them our way. They'll enjoy outstanding customer service and flexible financing options, and you'll earn $500 for every successful vehicle purchase.</p>
+            <p class="modal-description"><strong>Thank you for your continued trust, support, and referrals!</strong></p>
+            
+            <form class="form" onsubmit="handleFormSubmit(event, 'referral')">
+                <h3>YOUR INFORMATION</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="refFirstName">First Name *</label>
+                        <input type="text" id="refFirstName" name="refFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="refLastName">Last Name *</label>
+                        <input type="text" id="refLastName" name="refLastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="refPhone">Phone *</label>
+                        <input type="tel" id="refPhone" name="refPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="refEmail">Email *</label>
+                        <input type="email" id="refEmail" name="refEmail" required>
+                    </div>
+                </div>
+
+                <h3>REFERRALS INFORMATION</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="refRefFirstName">First Name *</label>
+                        <input type="text" id="refRefFirstName" name="refRefFirstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="refRefLastName">Last Name *</label>
+                        <input type="text" id="refRefLastName" name="refRefLastName" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="refRefPhone">Phone *</label>
+                        <input type="tel" id="refRefPhone" name="refRefPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="refRefEmail">Email *</label>
+                        <input type="email" id="refRefEmail" name="refRefEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="relationship">Relationship *</label>
+                        <select id="relationship" name="relationship" required>
+                            <option value="">-- Please choose an option --</option>
+                            <option value="friend">Friend</option>
+                            <option value="family">Family</option>
+                            <option value="colleague">Colleague</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="lookingFor">What are they looking for *</label>
+                        <select id="lookingFor" name="lookingFor" required>
+                            <option value="">-- Please choose an option --</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="truck">Truck</option>
+                            <option value="van">Van</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Free Delivery Modal -->
+    <div id="deliveryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('deliveryModal')">&times;</span>
+            <h2>FREE Canada-wide Delivery</h2>
+            <form class="form" onsubmit="handleFormSubmit(event, 'delivery')">
+                <div class="form-group">
+                    <label for="delFullName">Full Name *</label>
+                    <input type="text" id="delFullName" name="delFullName" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="delStreetAddress">Street Address *</label>
+                        <input type="text" id="delStreetAddress" name="delStreetAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="delCity">City *</label>
+                        <input type="text" id="delCity" name="delCity" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="delPostalCode">Postal Code *</label>
+                    <input type="text" id="delPostalCode" name="delPostalCode" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="delPhoneNumber">Phone Number *</label>
+                        <input type="tel" id="delPhoneNumber" name="delPhoneNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="delEmailAddress">Email Address *</label>
+                        <input type="email" id="delEmailAddress" name="delEmailAddress" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="delVehicleType">Vehicle Type *</label>
+                    <select id="delVehicleType" name="delVehicleType" required>
+                        <option value="">-- Please choose --</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="truck">Truck</option>
+                        <option value="van">Van</option>
+                        <option value="hatchback">Hatchback</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-submit">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Financing Modal -->
+    <div id="financingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('financingModal')">&times;</span>
+            <h2>We Partner With All Major Financial Institutions</h2>
+            <p class="modal-description">At Wavy Automotive, we partner with all major financial institutions to give you more financing options and better flexibility. Our wide network allows us to shop around on your behalf and secure the most competitive rates available — helping you drive away with a payment plan that fits your budget perfectly.</p>
+            
+            <div class="banks-grid-modal">
+                <div class="bank-card" onclick="openBankFinancingForm('TD')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>TD</h4>
+                </div>
+                <div class="bank-card" onclick="openBankFinancingForm('RBC')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>RBC</h4>
+                </div>
+                <div class="bank-card" onclick="openBankFinancingForm('CIBC')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>CIBC</h4>
+                </div>
+                <div class="bank-card" onclick="openBankFinancingForm('Quantifi')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>Quantifi</h4>
+                </div>
+                <div class="bank-card" onclick="openBankFinancingForm('Rifco')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>Rifco</h4>
+                </div>
+                <div class="bank-card" onclick="openBankFinancingForm('Eden Park')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>Eden Park Inc.</h4>
+                </div>
+                <div class="bank-card" onclick="openBankFinancingForm('NBC')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>National Bank of Canada</h4>
+                </div>
+                <div class="bank-card" onclick="openBankFinancingForm('Santander')">
+                    <div class="bank-icon">🏦</div>
+                    <h4>Santander Consumer Inc.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sell/Trade Modal -->
+    <div id="sellTradeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sellTradeModal')">&times;</span>
+            <h2>Sell or Trade Your Vehicle</h2>
+            <form class="form" onsubmit="handleFormSubmit(event, 'selltrade')">
+                <div class="form-group">
+                    <label for="stFullName">Full Name *</label>
+                    <input type="text" id="stFullName" name="stFullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="stPhoneNumber">Phone Number *</label>
+                    <input type="tel" id="stPhoneNumber" name="stPhoneNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="stEmail">Email Address *</label>
+                    <input type="email" id="stEmail" name="stEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="stVehicleMake">Vehicle Make *</label>
+                    <input type="text" id="stVehicleMake" name="stVehicleMake" required>
+                </div>
+                <div class="form-group">
+                    <label for="stVehicleModel">Vehicle Model *</label>
+                    <input type="text" id="stVehicleModel" name="stVehicleModel" required>
+                </div>
+                <div class="form-group">
+                    <label for="stVehicleYear">Vehicle Year *</label>
+                    <input type="number" id="stVehicleYear" name="stVehicleYear" min="1990" max="2099" required>
+                </div>
+                <div class="form-group">
+                    <label for="stVehicleMileage">Vehicle Mileage *</label>
+                    <input type="number" id="stVehicleMileage" name="stVehicleMileage" required>
+                </div>
+                <div class="form-group">
+                    <label for="stNotes">Additional Notes</label>
+                    <textarea id="stNotes" name="stNotes" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Terms of Service</h2>
+            <div class="modal-body">
+                <p>These Terms of Service ("Terms") govern your use of the Wavy Automotive website and services. By accessing and using this website, you accept and agree to be bound by and abide by the terms and provision of this agreement.</p>
+                <h3>Use License</h3>
+                <p>Permission is granted to temporarily download one copy of the materials (information or software) on Wavy Automotive's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                <ul>
+                    <li>Modify or copy the materials</li>
+                    <li>Use the materials for any commercial purpose or for any public display</li>
+                    <li>Attempt to decompile or reverse engineer any software contained on Wavy Automotive's website</li>
+                    <li>Remove any copyright or other proprietary notations from the materials</li>
+                </ul>
+                <p>This license shall automatically terminate if you violate any of these restrictions and may be terminated by Wavy Automotive at any time.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('privacyModal')">&times;</span>
+            <h2>Privacy Policy</h2>
+            <div class="modal-body">
+                <p>Wavy Automotive is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+                <h3>Information We Collect</h3>
+                <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
+                <ul>
+                    <li><strong>Personal Data:</strong> Name, email address, phone number, and other information you voluntarily provide when completing forms.</li>
+                    <li><strong>Vehicle Information:</strong> Information about vehicles you are interested in or have purchased.</li>
+                    <li><strong>Usage Data:</strong> Information about how you interact with our website, including IP addresses and page views.</li>
+                </ul>
+                <h3>Use of Your Information</h3>
+                <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:</p>
+                <ul>
+                    <li>Generate a personal profile about you so that future visits to the Site will be personalized</li>
+                    <li>Process your transactions and send related information</li>
+                    <li>Follow up with you regarding your inquiry or purchase</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
