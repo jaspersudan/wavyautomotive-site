@@ -1,0 +1,86 @@
+﻿{
+    "nbc":  {
+                "saved":  true,
+                "tried":  [
+                              "https://upload.wikimedia.org/wikipedia/commons/7/75/National_Bank_of_Canada_logo.svg",
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/National_Bank_of_Canada_logo.svg/1280px-National_Bank_of_Canada_logo.svg.png",
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/National_Bank_of_Canada_logo.svg/1024px-National_Bank_of_Canada_logo.svg.png",
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/National_Bank_of_Canada_logo.svg/800px-National_Bank_of_Canada_logo.svg.png",
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/National_Bank_of_Canada_logo.svg/600px-National_Bank_of_Canada_logo.svg.png",
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/National_Bank_of_Canada_logo.svg/500px-National_Bank_of_Canada_logo.svg.png",
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/National_Bank_of_Canada_logo.svg/300px-National_Bank_of_Canada_logo.svg.png",
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/National_Bank_of_Canada_logo.svg/200px-National_Bank_of_Canada_logo.svg.png",
+                              "https://www.nbc.ca/content/dam/global/logo/bnc-logo.png"
+                          ],
+                "file":  "C:\\Users\\Jassi\\Wavy Automotive Inc\\assets\\banks\\nbc.png"
+            },
+    "eden-park":  {
+                      "saved":  false,
+                      "tried":  [
+                                    "https://edenparkinc.com/wp-content/uploads/2018/06/eden-park-logo.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/06/eden-park-logo.png/1280px-eden-park-logo.png.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/06/eden-park-logo.png/1024px-eden-park-logo.png.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/06/eden-park-logo.png/800px-eden-park-logo.png.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/06/eden-park-logo.png/600px-eden-park-logo.png.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/06/eden-park-logo.png/500px-eden-park-logo.png.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/06/eden-park-logo.png/300px-eden-park-logo.png.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/06/eden-park-logo.png/200px-eden-park-logo.png.png"
+                                ],
+                      "file":  null
+                  },
+    "santander":  {
+                      "saved":  false,
+                      "tried":  [
+                                    "https://upload.wikimedia.org/wikipedia/commons/8/8a/Santander_logo.svg",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_logo.svg/1280px-Santander_logo.svg.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_logo.svg/1024px-Santander_logo.svg.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_logo.svg/800px-Santander_logo.svg.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_logo.svg/600px-Santander_logo.svg.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_logo.svg/500px-Santander_logo.svg.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_logo.svg/300px-Santander_logo.svg.png",
+                                    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Santander_logo.svg/200px-Santander_logo.svg.png",
+                                    "https://www.santander.com/content/dam/santander-com/paises/san-logo.png",
+                                    "https://www.santander.com/content/dam/santander-com/images/logo/santander-logo-negative.svg",
+                                    "https://www.santander.com/content/dam/santander-com/paises/san-logo.png",
+                                    "https://www.santander.com/content/dam/santander-com/images/Santander_Logo.svg",
+                                    "Our purpose is to help people and businesses prosper. We strive to make all we do Simple, Personal and Fair."
+                                ],
+                      "file":  null
+                  },
+    "rbc":  {
+                "saved":  true,
+                "tried":  [
+                              "https://upload.wikimedia.org/wikipedia/commons/f/f1/RBK_logo.svg"
+                          ],
+                "file":  "C:\\Users\\Jassi\\Wavy Automotive Inc\\assets\\banks\\rbc.svg"
+            },
+    "rifco":  {
+                  "saved":  false,
+                  "tried":  [
+                                "https://www.rifco.ca/wp-content/uploads/2018/11/rifco-logo.png",
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/11/rifco-logo.png/1280px-rifco-logo.png.png",
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/11/rifco-logo.png/1024px-rifco-logo.png.png",
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/11/rifco-logo.png/800px-rifco-logo.png.png",
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/11/rifco-logo.png/600px-rifco-logo.png.png",
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/11/rifco-logo.png/500px-rifco-logo.png.png",
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/11/rifco-logo.png/300px-rifco-logo.png.png",
+                                "https://upload.wikimedia.org/wikipedia/commons/thumb/2018/11/rifco-logo.png/200px-rifco-logo.png.png"
+                            ],
+                  "file":  null
+              },
+    "cibc":  {
+                 "saved":  true,
+                 "tried":  [
+                               "https://upload.wikimedia.org/wikipedia/commons/4/4a/CIBC_wordmark.svg",
+                               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CIBC_wordmark.svg/1280px-CIBC_wordmark.svg.png",
+                               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CIBC_wordmark.svg/1024px-CIBC_wordmark.svg.png",
+                               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CIBC_wordmark.svg/800px-CIBC_wordmark.svg.png",
+                               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CIBC_wordmark.svg/600px-CIBC_wordmark.svg.png",
+                               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CIBC_wordmark.svg/500px-CIBC_wordmark.svg.png",
+                               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CIBC_wordmark.svg/300px-CIBC_wordmark.svg.png",
+                               "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/CIBC_wordmark.svg/200px-CIBC_wordmark.svg.png",
+                               "https://www.cibc.com/content/dam/global-assets/logos/partner-logos/apple/apple-touch-icon.png"
+                           ],
+                 "file":  "C:\\Users\\Jassi\\Wavy Automotive Inc\\assets\\banks\\cibc.png"
+             }
+}
