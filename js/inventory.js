@@ -53,9 +53,16 @@ function createCarCard(car) {
     const card = document.createElement('div');
     card.className = 'car-card';
     
+    let imageHtml = '';
+    if (car.image && car.image.toString().trim() && !/default|placeholder|no-image/i.test(car.image)) {
+        imageHtml = `<img src="${car.image}" alt="${car.year} ${car.make} ${car.model}" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22280%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22280%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3ENo Image%3C/text%3E%3C/svg%3E'">`;
+    } else {
+        imageHtml = `<div class="no-image">Upcoming</div>`;
+    }
+
     card.innerHTML = `
         <div class="car-image">
-            <img src="${car.image}" alt="${car.year} ${car.make} ${car.model}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22280%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22280%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3ENo Image%3C/text%3E%3C/svg%3E'">
+            ${imageHtml}
         </div>
         <div class="car-info">
             <h3 class="car-title">${car.year} ${car.make} ${car.model}</h3>
@@ -316,6 +323,32 @@ style.textContent = `
     
     .car-details-full img {
         max-width: 100%;
+    }
+
+    /* Placeholder for missing images */
+    .car-image .no-image {
+        width: 280px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e0e0e0;
+        color: #777;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+    .no-image-large {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e0e0e0;
+        color: #777;
+        font-size: 18px;
+        border-radius: 10px;
+        margin: 20px 0;
     }
 `;
 
