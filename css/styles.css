@@ -35,6 +35,7 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
+    position: relative;
 }
 
 .nav-brand {
@@ -749,4 +750,27 @@ a {
 .navbar.nav-hidden {
     transform: translateY(-100%);
     box-shadow: none;
+}
+
+/* Mobile nav overlay & body lock */
+.nav-toggle { display: none; }
+body.nav-open-body { overflow: hidden; }
+@media (max-width: 768px) {
+    .company-info { display: none; }
+    .nav-toggle { display: block; }
+    .nav-menu.nav-open {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 64px; /* overridden via JS for precision */
+        background: #ffffff;
+        z-index: 105;
+        flex-direction: column;
+        padding: 20px;
+        min-height: calc(100vh - 64px);
+        overflow-y: auto;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .nav-link { padding: 12px 18px; font-size: 18px; }
 }

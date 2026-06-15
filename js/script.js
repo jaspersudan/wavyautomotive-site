@@ -494,56 +494,80 @@ function initBankLogos() {
     });
 }
 
-// Header hide-on-scroll and mobile nav toggle
+// Header hide-on-scroll and improved mobile nav
 (function() {
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.getElementById('siteNavbar') || document.querySelector('.navbar');
     let lastScroll = 0;
     const delta = 5;
     let ticking = false;
 
     function onScroll() {
         const current = window.scrollY || window.pageYOffset;
-        if (Math.abs(current - lastScroll) <= delta) {
-            return;
-        }
+        if (Math.abs(current - lastScroll) <= delta) return;
         if (current > lastScroll && current > 80) {
-            // scrolling down
             navbar && navbar.classList.add('nav-hidden');
         } else {
-            // scrolling up
             navbar && navbar.classList.remove('nav-hidden');
         }
         lastScroll = current;
     }
 
-    // Throttle using requestAnimationFrame
     window.addEventListener('scroll', function() {
         if (!ticking) {
-            window.requestAnimationFrame(function() {
-                onScroll();
-                ticking = false;
-            });
+            window.requestAnimationFrame(function() { onScroll(); ticking = false; });
             ticking = true;
         }
     });
 
-    // Mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
+
+    function openNav() {
+        if (!navMenu) return;
+        navMenu.classList.add('nav-open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('nav-open-body');
+        const navHeight = navbar ? navbar.offsetHeight : 64;
+        navMenu.style.top = navHeight + 'px';
+    }
+
+    function closeNav() {
+        if (!navMenu) return;
+        navMenu.classList.remove('nav-open');
+        if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open-body');
+    }
+
+    function toggleNav() {
+        if (!navMenu) return;
+        if (navMenu.classList.contains('nav-open')) closeNav(); else openNav();
+    }
+
     if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function(e) {
-            navMenu.classList.toggle('nav-open');
-        });
+        navToggle.addEventListener('click', function(e) { e.stopPropagation(); toggleNav(); });
     } else {
-        // in case elements not yet in DOM, attach after DOM ready
         document.addEventListener('DOMContentLoaded', function() {
             const nt = document.getElementById('navToggle');
             const nm = document.getElementById('navMenu');
-            if (nt && nm) {
-                nt.addEventListener('click', function() { nm.classList.toggle('nav-open'); });
-            }
+            if (nt && nm) nt.addEventListener('click', function(e) { e.stopPropagation(); nm.classList.toggle('nav-open'); });
         });
     }
+
+    // Close when clicking nav link or outside
+    document.addEventListener('click', function(e) {
+        if (!navMenu) return;
+        if (e.target.closest('.nav-menu') && e.target.classList.contains('nav-link')) {
+            closeNav();
+            return;
+        }
+        if (navMenu.classList.contains('nav-open') && !e.target.closest('#navMenu') && !e.target.closest('#navToggle')) {
+            closeNav();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeNav(); });
+
 })();
 
 window.searchInventory = searchInventory;
