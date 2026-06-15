@@ -621,10 +621,31 @@ a {
         padding: 15px;
     }
 
+    .nav-toggle {
+        display: block;
+        background: transparent;
+        border: none;
+        font-size: 26px;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 16px;
+        z-index: 110;
+    }
+
     .nav-menu {
         flex-direction: column;
         gap: 10px;
         width: 100%;
+        display: none; /* hidden by default on mobile */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+    }
+
+    .nav-menu.nav-open {
+        display: flex;
+        max-height: 400px;
     }
 
     .nav-link {
@@ -693,13 +714,13 @@ a {
 
 @media (max-width: 480px) {
     .nav-brand {
-        flex-direction: column;
+        flex-direction: row; /* keep brand inline to save vertical space */
         gap: 10px;
     }
 
     .logo {
-        height: 60px;
-        max-width: 100px;
+        height: 56px;
+        max-width: 120px;
     }
 
     .hero-content h2 {
@@ -719,4 +740,13 @@ a {
     .contact h2 {
         font-size: 28px;
     }
+}
+
+/* Header auto-hide when scrolling */
+.navbar {
+    transition: transform 0.25s ease-in-out, box-shadow 0.25s ease;
+}
+.navbar.nav-hidden {
+    transform: translateY(-100%);
+    box-shadow: none;
 }

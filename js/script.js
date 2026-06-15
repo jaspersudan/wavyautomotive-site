@@ -494,4 +494,56 @@ function initBankLogos() {
     });
 }
 
+// Header hide-on-scroll and mobile nav toggle
+(function() {
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    const delta = 5;
+    let ticking = false;
+
+    function onScroll() {
+        const current = window.scrollY || window.pageYOffset;
+        if (Math.abs(current - lastScroll) <= delta) {
+            return;
+        }
+        if (current > lastScroll && current > 80) {
+            // scrolling down
+            navbar && navbar.classList.add('nav-hidden');
+        } else {
+            // scrolling up
+            navbar && navbar.classList.remove('nav-hidden');
+        }
+        lastScroll = current;
+    }
+
+    // Throttle using requestAnimationFrame
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                onScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function(e) {
+            navMenu.classList.toggle('nav-open');
+        });
+    } else {
+        // in case elements not yet in DOM, attach after DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const nt = document.getElementById('navToggle');
+            const nm = document.getElementById('navMenu');
+            if (nt && nm) {
+                nt.addEventListener('click', function() { nm.classList.toggle('nav-open'); });
+            }
+        });
+    }
+})();
+
 window.searchInventory = searchInventory;

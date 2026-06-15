@@ -29,7 +29,7 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" id="siteNavbar">
         <div class="nav-container">
             <div class="nav-brand">
                 <img src="assets/logo.png" alt="Wavy Automotive Logo" class="logo">
@@ -38,7 +38,8 @@
                     <p class="slogan">Ride The Wave of Quality</p>
                 </div>
             </div>
-            <ul class="nav-menu">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#" class="nav-link" onclick="openInventory()">Inventory</a></li>
                 <li><a href="#" class="nav-link" onclick="openReferralModal()">Referral</a></li>
