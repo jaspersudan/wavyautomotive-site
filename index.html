@@ -10,7 +10,8 @@
     /* Hero styles (added by script) */
     .hero {
       position: relative;
-      background: linear-gradient(rgba(5,23,38,0.45), rgba(5,23,38,0.25)), url("assets/hero-car.jpg") center/cover no-repeat;
+      background: url("assets/hero-car.jpg") center/cover no-repeat;
+      background-size: cover;
       color: #fff;
       min-height: 520px;
       display: flex;
@@ -43,6 +44,7 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="#" class="nav-link" onclick="openAdminPanel()">Admin</a></li>
                 <li><a href="#" class="nav-link" onclick="openSellTradeModal()">Sell/Trade</a></li>
+                <li><a href="#" class="nav-link" onclick="openModal('findCarModal')">Find your car</a></li>
             </ul>
         </div>
     </nav>
@@ -50,12 +52,7 @@
     <!-- Hero Section -->
 <section class="hero" id="home">
     <div class="hero-content">
-        <h1 class="hero-title">Drive Wavy. Drive Different.</h1>
         <p class="hero-sub">Quality vehicles. Honest pricing. A better car buying experience.</p>
-        <div class="hero-cta">
-            <button class="btn btn-primary" onclick="openModal('findCarModal')">Find your car</button>
-            <button class="btn btn-secondary" onclick="openInventory()">Browse inventory</button>
-        </div>
     </div>
 </section>
 
