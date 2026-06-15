@@ -413,5 +413,22 @@ window.openFinancingModal = openFinancingModal;
 window.openSellTradeModal = openSellTradeModal;
 window.openTermsModal = openTermsModal;
 window.openPrivacyModal = openPrivacyModal;
+function openBankFinancingForm(bankName) {
+    // Prefill a hidden field in the Find My Car form and open the modal
+    const findForm = document.querySelector('#findCarModal form');
+    if (findForm) {
+        let bankInput = findForm.querySelector('input[name="preferredBank"]');
+        if (!bankInput) {
+            bankInput = document.createElement('input');
+            bankInput.type = 'hidden';
+            bankInput.name = 'preferredBank';
+            findForm.appendChild(bankInput);
+        }
+        bankInput.value = bankName || '';
+    }
+
+    // Open the same Find My Car modal
+    openModal('findCarModal');
+}
 window.openBankFinancingForm = openBankFinancingForm;
 window.searchInventory = searchInventory;
