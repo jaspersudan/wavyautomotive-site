@@ -34,12 +34,116 @@
         <div class="hero-content">
             <h2>WANNA DRIVE?</h2>
             <p>We make it easy to buy and sell your car</p>
-            <button class="btn btn-primary" onclick="openInventory()">Find your car</button>
+            <button class="btn btn-primary" onclick="openModal('findCarModal')">Find your car</button>
         </div>
         <div class="hero-image">
             <img id="heroCarImage" alt="Featured Luxury Car" src="assets/hero-car.jpg" class="featured-car-image" />
         </div>
     </section>
+
+    <!-- Find Car Modal -->
+    <div id="findCarModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('findCarModal')">&times;</span>
+            <h2>Find My Car - Customer Details</h2>
+            <form class="form" onsubmit="handleFormSubmit(event, 'findCar')">
+
+                <h3>Personal Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="findFirstName">First Name *</label>
+                        <input type="text" id="findFirstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="findMiddleName">Middle Name</label>
+                        <input type="text" id="findMiddleName" name="middleName">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="findLastName">Last Name *</label>
+                        <input type="text" id="findLastName" name="lastName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="findPhone">Phone Number *</label>
+                        <input type="tel" id="findPhone" name="phoneNumber" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="findEmail">Email *</label>
+                        <input type="email" id="findEmail" name="emailAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="findDob">Date of Birth *</label>
+                        <input type="date" id="findDob" name="dateOfBirth" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="findGender">Gender</label>
+                        <select id="findGender" name="gender">
+                            <option value="">-- Please choose --</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer_not">Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="findMaritalStatus">Marital Status</label>
+                        <select id="findMaritalStatus" name="maritalStatus">
+                            <option value="">-- Please choose --</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="common_law">Common-law</option>
+                            <option value="divorced">Divorced</option>
+                            <option value="widowed">Widowed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3>Current Address</h3>
+                <div class="form-group">
+                    <label for="findAddress">Current Address *</label>
+                    <input type="text" id="findAddress" name="currentAddress" required>
+                </div>
+
+                <h3>Employment</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="findEmployer">Employer Name *</label>
+                        <input type="text" id="findEmployer" name="employerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="findOccupation">Occupation *</label>
+                        <input type="text" id="findOccupation" name="occupation" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="findEmployerAddress">Employer Address *</label>
+                    <input type="text" id="findEmployerAddress" name="employerAddress" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="findGrossIncome">Gross Income (Monthly) *</label>
+                        <input type="number" id="findGrossIncome" name="grossIncomeMonthly" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="findContactPref">Preferred Contact Method</label>
+                        <select id="findContactPref" name="contactPreference">
+                            <option value="">-- Please choose --</option>
+                            <option value="phone">Phone</option>
+                            <option value="email">Email</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-submit">SUBMIT</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Search Bar Section -->
     <section class="search-section">

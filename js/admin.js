@@ -157,9 +157,16 @@ function loadSubmissions() {
     
     submissions.reverse().forEach(submission => {
         const row = document.createElement('tr');
-        const name = submission.refFirstName ? submission.refFirstName : submission.fullName;
-        const email = submission.refEmail ? submission.refEmail : submission.emailAddress || submission.email || 'N/A';
-        const phone = submission.refPhone ? submission.refPhone : submission.phoneNumber || submission.phone || 'N/A';
+        let name = 'N/A';
+        if (submission.refFirstName) {
+            name = submission.refFirstName + (submission.refLastName ? ' ' + submission.refLastName : '');
+        } else if (submission.fullName) {
+            name = submission.fullName;
+        } else if (submission.firstName || submission.lastName) {
+            name = (submission.firstName || '') + (submission.lastName ? ' ' + submission.lastName : '');
+        }
+        const email = submission.refEmail ? submission.refEmail : (submission.emailAddress || submission.email || 'N/A');
+        const phone = submission.refPhone ? submission.refPhone : (submission.phoneNumber || submission.phone || 'N/A');
         
         row.innerHTML = `
             <td>${name}</td>
