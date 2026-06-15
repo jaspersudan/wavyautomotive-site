@@ -22,6 +22,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loadAndDisplayInventory() {
     currentInventory = getInventoryData();
+
+    // Prefill filters from sessionStorage if present (supports pre-selection from homepage)
+    const sMake = sessionStorage.getItem('searchMake');
+    const sModel = sessionStorage.getItem('searchModel');
+
+    const filterMakeEl = document.getElementById('filterMake');
+    const filterModelEl = document.getElementById('filterModel');
+
+    if ((sMake && sMake.trim()) || (sModel && sModel.trim())) {
+        const lowerMake = sMake ? sMake.toLowerCase() : '';
+        const lowerModel = sModel ? sModel.toLowerCase() : '';
+
+        // find proper-cased make/model from inventory if possible
+        const matchedMake = currentInventory.find(c => c.make && c.make.toLowerCase() === lowerMake);
+        if (filterMakeEl) {
+            filterMakeEl.value = matchedMake ? matchedMake.make : (sMake || '');
+        }
+
+        if (filterModelEl && lowerModel) {
+            // Prefer a model that matches both model and make (if make provided)
+            let matchedModel = null;
+            if (lowerMake) {
+                matchedModel = currentInventory.find(c => c.model && c.model.toLowerCase() === lowerModel && c.make && c.make.toLowerCase() === lowerMake);
+            }
+            if (!matchedModel) {
+                matchedModel = currentInventory.find(c => c.model && c.model.toLowerCase() === lowerModel);
+            }
+            filterModelEl.value = matchedModel ? matchedModel.model : (sModel || '');
+        }
+
+        // clear session keys to avoid reapplying on page reload
+        sessionStorage.removeItem('searchMake');
+        sessionStorage.removeItem('searchModel');
+
+        // Apply filters using the prefilled inputs
+        applyFilters();
+        return;
+    }
+
     displayInventory(currentInventory);
 }
 
