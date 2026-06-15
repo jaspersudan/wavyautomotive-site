@@ -57,7 +57,20 @@ function createCarCard(car) {
     if (car.image && car.image.toString().trim() && !/default|placeholder|no-image/i.test(car.image)) {
         imageHtml = `<img src="${car.image}" alt="${car.year} ${car.make} ${car.model}" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22280%22 height=%22200%22%3E%3Crect fill=%22%23e0e0e0%22 width=%22280%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2216%22 fill=%22%23999%22 text-anchor=%22middle%22 dy=%22.3em%22%3ENo Image%3C/text%3E%3C/svg%3E'">`;
     } else {
-        imageHtml = `<div class="no-image">Upcoming</div>`;
+        imageHtml = `<div class="no-image upcoming-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 560 400" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0" stop-color="#ff5252"/>
+                        <stop offset="1" stop-color="#c62828"/>
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#g)"/>
+                <path d="M80 260 C120 200 180 170 260 170 340 170 400 200 460 260 L460 280 L80 280 Z" fill="#7b1f1f" opacity="0.6"/>
+                <path d="M0 160 C140 110 420 110 560 160 L560 280 L0 280 Z" fill="#ff2d2d" opacity="0.9"/>
+                <text x="50%" y="68%" dominant-baseline="middle" text-anchor="middle" font-size="32" fill="#fff" font-family="Arial" font-weight="700">Upcoming</text>
+            </svg>
+        </div>`;
     }
 
     card.innerHTML = `
@@ -325,17 +338,22 @@ style.textContent = `
         max-width: 100%;
     }
 
-    /* Placeholder for missing images */
+    /* Placeholder for missing images - stylized upcoming with red drape */
     .car-image .no-image {
         width: 280px;
         height: 200px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #e0e0e0;
-        color: #777;
-        font-size: 18px;
         border-radius: 8px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #c62828, #ff5252);
+    }
+
+    .car-image .no-image svg {
+        width: 100%;
+        height: 100%;
+        display: block;
     }
 
     .no-image-large {
@@ -344,10 +362,9 @@ style.textContent = `
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #e0e0e0;
-        color: #777;
-        font-size: 18px;
         border-radius: 10px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #c62828, #ff5252);
         margin: 20px 0;
     }
 `;
