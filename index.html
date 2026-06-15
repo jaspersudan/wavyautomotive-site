@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +6,24 @@
     <title>Wavy Automotive Inc. - Quality Used Cars</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/modals.css">
+    <style>
+    /* Hero styles (added by script) */
+    .hero {
+      position: relative;
+      background: linear-gradient(rgba(5,23,38,0.45), rgba(5,23,38,0.25)), url("assets/hero-car.jpg") center/cover no-repeat;
+      color: #fff;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 60px 5%;
+      box-sizing: border-box;
+    }
+    .hero-content { max-width: 680px; }
+    .hero-title { font-size: clamp(28px, 6vw, 64px); line-height:1.02; margin:0 0 10px; font-weight:700; letter-spacing:-1px; }
+    .hero-sub { font-size:18px; margin-bottom:20px; color: rgba(255,255,255,0.95); }
+    .hero-cta .btn { margin-right:12px; }
+    @media (max-width:768px) { .hero { padding: 40px 20px; min-height: 420px; } .hero-title { font-size:36px; } }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -29,17 +47,17 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Slideshow -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h2>WANNA DRIVE?</h2>
-            <p>We make it easy to buy and sell your car</p>
+    <!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1 class="hero-title">Drive Wavy. Drive Different.</h1>
+        <p class="hero-sub">Quality vehicles. Honest pricing. A better car buying experience.</p>
+        <div class="hero-cta">
             <button class="btn btn-primary" onclick="openModal('findCarModal')">Find your car</button>
+            <button class="btn btn-secondary" onclick="openInventory()">Browse inventory</button>
         </div>
-        <div class="hero-image">
-            <img id="heroCarImage" alt="Featured Luxury Car" src="assets/hero-car.jpg" class="featured-car-image" />
-        </div>
-    </section>
+    </div>
+</section>
 
     <!-- Find Car Modal -->
     <div id="findCarModal" class="modal">
@@ -160,31 +178,31 @@
     <!-- Features Section -->
     <section class="features">
         <div class="feature-card" onclick="openApprovalsModal()">
-            <div class="feature-icon">✓</div>
+            <div class="feature-icon">âœ“</div>
             <h3>Same Day Approvals!</h3>
             <p>Get approved quickly and drive home same day with our fast approval process.</p>
         </div>
 
         <div class="feature-card" onclick="openReferralModal()">
-            <div class="feature-icon">💛</div>
+            <div class="feature-icon">ðŸ’›</div>
             <h3>Referral Programs Available</h3>
             <p>Earn rewards by referring friends and family to Wavy Automotive.</p>
         </div>
 
         <div class="feature-card" onclick="openInventory()">
-            <div class="feature-icon">📦</div>
+            <div class="feature-icon">ðŸ“¦</div>
             <h3>Huge Selection of Inventory</h3>
             <p>Browse from hundreds of quality vehicles to find your perfect match.</p>
         </div>
 
         <div class="feature-card" onclick="openDeliveryModal()">
-            <div class="feature-icon">🚚</div>
+            <div class="feature-icon">ðŸšš</div>
             <h3>FREE Canada-wide Delivery</h3>
             <p>Complimentary delivery anywhere in Canada for your convenience.</p>
         </div>
 
         <div class="feature-card" onclick="openFinancingModal()">
-            <div class="feature-icon">💰</div>
+            <div class="feature-icon">ðŸ’°</div>
             <h3>Lowest Interest Rates</h3>
             <p>Affordable payments with competitive financing options available.</p>
         </div>
@@ -197,22 +215,22 @@
         <h2>Trusting Buying Experience</h2>
         <div class="experience-cards">
             <div class="experience-card">
-                <div class="experience-icon">✓</div>
+                <div class="experience-icon">âœ“</div>
                 <h4>Transparent Pricing</h4>
                 <p>No hidden fees. What you see is what you pay.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">🔍</div>
+                <div class="experience-icon">ðŸ”</div>
                 <h4>Fully Inspected</h4>
                 <p>Every vehicle is thoroughly inspected and certified.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">⭐</div>
+                <div class="experience-icon">â­</div>
                 <h4>Trusted Service</h4>
                 <p>10+ years of excellence in customer service.</p>
             </div>
             <div class="experience-card">
-                <div class="experience-icon">🛡️</div>
+                <div class="experience-icon">ðŸ›¡ï¸</div>
                 <h4>Warranty Coverage</h4>
                 <p>Comprehensive warranty options available.</p>
             </div>
@@ -223,60 +241,60 @@
     <section class="reviews">
         <h2>What Our Customers Are Saying</h2>
         <div class="reviews-carousel">
-            <button class="carousel-btn prev" onclick="scrollReviews(-1)">‹</button>
+            <button class="carousel-btn prev" onclick="scrollReviews(-1)">â€¹</button>
             <div class="reviews-container">
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Excellent service! The team at Wavy Automotive made buying my car smooth and hassle-free. Highly recommended!"</p>
                     <p class="review-author">- Sarah Mitchell</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Great selection of vehicles and competitive prices. Customer service was outstanding from start to finish."</p>
                     <p class="review-author">- James Rodriguez</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Professional and friendly staff. They took time to understand my needs and found the perfect car for me."</p>
                     <p class="review-author">- Emily Chen</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Best car buying experience I've had. Quality vehicles and transparent pricing. Definitely coming back!"</p>
                     <p class="review-author">- Michael Torres</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Fast approval process and great financing options. The team went above and beyond to help."</p>
                     <p class="review-author">- Jennifer Park</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Amazing experience from beginning to end. Would highly recommend Wavy Automotive to anyone!"</p>
                     <p class="review-author">- David Martinez</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Incredible service and selection. Found exactly what I was looking for at a great price."</p>
                     <p class="review-author">- Lisa Anderson</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Professional, courteous, and very helpful. This is how car buying should be!"</p>
                     <p class="review-author">- Robert Zhang</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Delivered my car on time, everything as promised. Top-notch service!"</p>
                     <p class="review-author">- Amanda Davis</p>
                 </div>
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">â˜…â˜…â˜…â˜…â˜…</div>
                     <p class="review-text">"Best dealership I've ever worked with. Highly professional and customer-focused."</p>
                     <p class="review-author">- Christopher Brown</p>
                 </div>
             </div>
-            <button class="carousel-btn next" onclick="scrollReviews(1)">›</button>
+            <button class="carousel-btn next" onclick="scrollReviews(1)">â€º</button>
         </div>
     </section>
 
@@ -448,7 +466,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('referralModal')">&times;</span>
             <h2>Referral Program</h2>
-            <p class="modal-description">Our referral program is our way of thanking loyal customers for helping our business grow. When you refer someone to us and they purchase a vehicle, you'll receive $500 — it's that easy!</p>
+            <p class="modal-description">Our referral program is our way of thanking loyal customers for helping our business grow. When you refer someone to us and they purchase a vehicle, you'll receive $500 â€” it's that easy!</p>
             <p class="modal-description">We truly value our customers and believe they are our strongest supporters, which is why we're proud to offer this rewarding opportunity. If you know anyone searching for a new or pre-owned vehicle, send them our way. They'll enjoy outstanding customer service and flexible financing options, and you'll earn $500 for every successful vehicle purchase.</p>
             <p class="modal-description"><strong>Thank you for your continued trust, support, and referrals!</strong></p>
             
@@ -579,39 +597,39 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('financingModal')">&times;</span>
             <h2>We Partner With All Major Financial Institutions</h2>
-            <p class="modal-description">At Wavy Automotive, we partner with all major financial institutions to give you more financing options and better flexibility. Our wide network allows us to shop around on your behalf and secure the most competitive rates available — helping you drive away with a payment plan that fits your budget perfectly.</p>
+            <p class="modal-description">At Wavy Automotive, we partner with all major financial institutions to give you more financing options and better flexibility. Our wide network allows us to shop around on your behalf and secure the most competitive rates available â€” helping you drive away with a payment plan that fits your budget perfectly.</p>
             
             <div class="banks-grid-modal">
                 <div class="bank-card" onclick="openBankFinancingForm('TD')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>TD</h4>
                 </div>
                 <div class="bank-card" onclick="openBankFinancingForm('RBC')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>RBC</h4>
                 </div>
                 <div class="bank-card" onclick="openBankFinancingForm('CIBC')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>CIBC</h4>
                 </div>
                 <div class="bank-card" onclick="openBankFinancingForm('Quantifi')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>Quantifi</h4>
                 </div>
                 <div class="bank-card" onclick="openBankFinancingForm('Rifco')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>Rifco</h4>
                 </div>
                 <div class="bank-card" onclick="openBankFinancingForm('Eden Park')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>Eden Park Inc.</h4>
                 </div>
                 <div class="bank-card" onclick="openBankFinancingForm('NBC')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>National Bank of Canada</h4>
                 </div>
                 <div class="bank-card" onclick="openBankFinancingForm('Santander')">
-                    <div class="bank-icon">🏦</div>
+                    <div class="bank-icon">ðŸ¦</div>
                     <h4>Santander Consumer Inc.</h4>
                 </div>
             </div>
@@ -709,3 +727,4 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
