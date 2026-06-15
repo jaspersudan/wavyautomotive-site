@@ -757,20 +757,46 @@ a {
 body.nav-open-body { overflow: hidden; }
 @media (max-width: 768px) {
     .company-info { display: none; }
-    .nav-toggle { display: block; }
+    .nav-toggle {
+        display: block;
+        background: #ffffff;
+        border: 1px solid rgba(0,0,0,0.06);
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-size: 22px;
+        color: #003D7A;
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 210;
+    }
+    /* hide menu by default and make overlay when open */
+    .nav-menu {
+        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, opacity 0.35s ease;
+    }
     .nav-menu.nav-open {
         display: flex;
+        opacity: 1;
+        max-height: 120px;
         position: fixed;
         left: 0;
         right: 0;
-        top: 64px; /* overridden via JS for precision */
+        top: 56px; /* top below header */
         background: #ffffff;
-        z-index: 105;
-        flex-direction: column;
-        padding: 20px;
-        min-height: calc(100vh - 64px);
-        overflow-y: auto;
+        z-index: 205;
+        flex-direction: row;
+        padding: 8px 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        align-items: center;
+        gap: 12px;
+        white-space: nowrap;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    .nav-link { padding: 12px 18px; font-size: 18px; }
+    .nav-link { padding: 8px 12px; font-size: 16px; border-bottom: none; display:inline-flex; align-items:center; white-space:nowrap; }
+    .nav-link.active { background: transparent; border-bottom-color: #2E9ECF; }
 }
