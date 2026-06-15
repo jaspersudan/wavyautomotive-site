@@ -18,6 +18,7 @@
       align-items: center;
       padding: 60px 5%;
       box-sizing: border-box;
+      cursor: pointer;
     }
     .hero-content { max-width: 680px; }
     .hero-title { font-size: clamp(28px, 6vw, 64px); line-height:1.02; margin:0 0 10px; font-weight:700; letter-spacing:-1px; }
@@ -50,7 +51,7 @@
     </nav>
 
     <!-- Hero Section -->
-<section class="hero" id="home">
+<section class="hero" id="home" onclick="openInventory()" role="button" tabindex="0">
     <div class="hero-content">
         <p class="hero-sub">Quality vehicles. Honest pricing. A better car buying experience.</p>
     </div>
@@ -165,8 +166,12 @@
         <div class="search-container">
             <h3>Find Your Perfect Vehicle</h3>
             <div class="search-bar">
-                <input type="text" id="searchMake" placeholder="Search by Make (e.g., Toyota)">
-                <input type="text" id="searchModel" placeholder="Search by Model (e.g., Camry)">
+                <select id="searchMake" aria-label="Select make">
+                    <option value="">Select Make</option>
+                </select>
+                <select id="searchModel" aria-label="Select model" disabled>
+                    <option value="">Select Model</option>
+                </select>
                 <button class="btn btn-search" onclick="searchInventory()">Search</button>
             </div>
         </div>

@@ -127,17 +127,18 @@ function openInventory() {
 
 // Search Function
 function searchInventory() {
-    const make = document.getElementById('searchMake').value.toLowerCase();
-    const model = document.getElementById('searchModel').value.toLowerCase();
-    
-    if (make || model) {
-        // Store search parameters
-        sessionStorage.setItem('searchMake', make);
-        sessionStorage.setItem('searchModel', model);
-        openInventory();
-    } else {
-        alert('Please enter a make or model to search');
+    const make = document.getElementById('searchMake').value;
+    const model = document.getElementById('searchModel').value;
+
+    if (!make) {
+        alert('Please select a make first');
+        return;
     }
+
+    // Store search parameters (lowercased for matching)
+    sessionStorage.setItem('searchMake', make.toLowerCase());
+    sessionStorage.setItem('searchModel', model ? model.toLowerCase() : '');
+    openInventory();
 }
 
 // Admin Panel Function
@@ -227,6 +228,13 @@ function scrollReviews(direction) {
 document.addEventListener('DOMContentLoaded', function() {
     // Load inventory data from localStorage or fetch from server
     loadInventoryData();
+
+    // Populate Make/Model selects on homepage (if present)
+    try {
+        if (typeof populateMakeModelSelects === 'function') {
+            populateMakeModelSelects();
+        }
+    } catch (e) { console.warn('populateMakeModelSelects not available', e); }
     
     // Initialize any other components
     initializeReviews();
@@ -390,6 +398,45 @@ function formatCurrency(amount) {
 // Utility function to format mileage
 function formatMileage(mileage) {
     return new Intl.NumberFormat('en-CA').format(mileage);
+}
+
+function populateMakeModelSelects() {
+    const makeSelect = document.getElementById('searchMake');
+    const modelSelect = document.getElementById('searchModel');
+    if (!makeSelect || !modelSelect) return;
+
+    const inventory = getInventoryData();
+    const makes = Array.from(new Set(inventory.map(c => c.make).filter(Boolean))).sort();
+
+    // populate makes
+    makeSelect.innerHTML = '<option value="">Select Make</option>';
+    makes.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m;
+        opt.textContent = m;
+        makeSelect.appendChild(opt);
+    });
+
+    // Reset model
+    modelSelect.innerHTML = '<option value="">Select Model</option>';
+    modelSelect.disabled = true;
+
+    makeSelect.addEventListener('change', function() {
+        const selectedMake = this.value;
+        modelSelect.innerHTML = '<option value="">Select Model</option>';
+        if (!selectedMake) {
+            modelSelect.disabled = true;
+            return;
+        }
+        const models = Array.from(new Set(inventory.filter(c => c.make === selectedMake).map(c => c.model).filter(Boolean))).sort();
+        models.forEach(mo => {
+            const o = document.createElement('option');
+            o.value = mo;
+            o.textContent = mo;
+            modelSelect.appendChild(o);
+        });
+        modelSelect.disabled = false;
+    });
 }
 
 // Export functions for use in other pages
