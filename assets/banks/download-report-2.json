@@ -1,0 +1,39 @@
+﻿{
+    "santander":  {
+                      "saved":  false,
+                      "tried":  [
+                                    "https://www.santander.com/content/dam/santander-com/paises/san-logo.png",
+                                    "https://www.santander.com/content/dam/santander-com/images/logo/santander-logo-negative.svg",
+                                    "https://www.santander.com/content/dam/santander-com/images/Santander_Logo.svg",
+                                    "https://upload.wikimedia.org/wikipedia/commons/6/62/Santander_2013_logo.svg",
+                                    "https://logo.clearbit.com/www.santander.com?size=800",
+                                    "https://logo.clearbit.com/www.santandercanada.ca?size=800"
+                                ],
+                      "file":  null
+                  },
+    "eden-park":  {
+                      "saved":  false,
+                      "tried":  [
+                                    "https://edenparkinc.com/wp-content/uploads/2018/06/eden-park-logo.png",
+                                    "https://www.edenparkinc.com/wp-content/uploads/2018/06/eden-park-logo.png",
+                                    "https://edenparkinc.com/wp-content/uploads/2020/04/edenpark_logo.png",
+                                    "https://logo.clearbit.com/edenparkinc.com?size=800",
+                                    "https://logo.clearbit.com/www.edenparkinc.com?size=800"
+                                ],
+                      "file":  null
+                  },
+    "rifco":  {
+                  "saved":  false,
+                  "tried":  [
+                                "https://www.rifco.ca/wp-content/uploads/2018/11/rifco-logo.png",
+                                "https://rifco.ca/wp-content/uploads/2018/11/rifco-logo.png",
+                                "https://www.rifco.net/wp-content/uploads/rifco-logo.png",
+                                "https://rifco.ca/wp-content/uploads/rifco-logo.png",
+                                "https://rifco.ca/wp-content/uploads/2019/03/logo.png",
+                                "https://logo.clearbit.com/www.rifco.ca?size=800",
+                                "https://logo.clearbit.com/rifco.ca?size=800",
+                                "https://logo.clearbit.com/www.rifco.net?size=800"
+                            ],
+                  "file":  null
+              }
+}
