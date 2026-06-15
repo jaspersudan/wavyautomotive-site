@@ -234,7 +234,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof populateMakeModelSelects === 'function') {
             populateMakeModelSelects();
         }
-    } catch (e) { console.warn('populateMakeModelSelects not available', e); }
+        if (typeof initBankLogos === 'function') {
+            initBankLogos();
+        }
+    } catch (e) { console.warn('populateMakeModelSelects/initBankLogos not available', e); }
     
     // Initialize any other components
     initializeReviews();
@@ -478,4 +481,17 @@ function openBankFinancingForm(bankName) {
     openModal('findCarModal');
 }
 window.openBankFinancingForm = openBankFinancingForm;
+function initBankLogos() {
+    document.querySelectorAll('.bank-card').forEach(card => {
+        const img = card.querySelector('img.bank-logo');
+        const label = card.querySelector('.bank-label');
+        if (!img) return;
+
+        img.addEventListener('load', () => { if (label) label.style.display = 'none'; });
+        img.addEventListener('error', () => { img.style.display = 'none'; if (label) label.style.display = 'block'; });
+        // If image already loaded from cache
+        if (img.complete && img.naturalWidth !== 0) { if (label) label.style.display = 'none'; }
+    });
+}
+
 window.searchInventory = searchInventory;

@@ -172,6 +172,27 @@
 .banks-grid-modal .bank-card {
     padding: 20px;
     min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.bank-card .bank-logo {
+    max-width: 100px;
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.bank-card .bank-label {
+    margin: 0;
+    font-size: 16px;
+    color: #003D7A;
+    text-align: center;
 }
 
 /* Responsive Modal */
