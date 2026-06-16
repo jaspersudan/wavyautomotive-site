@@ -11,6 +11,9 @@
     overflow-y: auto;
 }
 
+/* Prevent background scrolling when a modal is open */
+body.modal-open-body { overflow: hidden; }
+
 .modal.show {
     display: flex;
     align-items: center;

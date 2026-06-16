@@ -2,7 +2,16 @@
 function openModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
+        // ensure this modal is on top of any others by increasing a global z-index counter
+        window.__wavy_modal_z = window.__wavy_modal_z || 1000;
+        window.__wavy_modal_z += 2; // reserve a gap for content
+        modal.style.zIndex = window.__wavy_modal_z;
+        const content = modal.querySelector('.modal-content');
+        if (content) content.style.zIndex = window.__wavy_modal_z + 1;
+
         modal.classList.add('show');
+        // lock body scrolling when a modal is open
+        document.body.classList.add('modal-open-body');
     }
 }
 
@@ -10,6 +19,14 @@ function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
         modal.classList.remove('show');
+        // clear inline z-index so stacking returns to normal
+        modal.style.zIndex = '';
+        const content = modal.querySelector('.modal-content');
+        if (content) content.style.zIndex = '';
+
+        // if no other modals are open, unlock body scroll
+        const anyOpen = document.querySelectorAll('.modal.show').length > 0;
+        if (!anyOpen) document.body.classList.remove('modal-open-body');
     }
 }
 
@@ -567,6 +584,12 @@ function initBankLogos() {
 
     // Close on Escape key
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeNav(); });
+
+    // Ensure menu closed on load
+    document.addEventListener('DOMContentLoaded', function() {
+        if (navMenu) closeNav();
+        if (navToggle) navToggle.setAttribute('aria-expanded','false');
+    });
 
 })();
 
